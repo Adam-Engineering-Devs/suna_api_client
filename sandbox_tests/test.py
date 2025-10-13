@@ -16,7 +16,7 @@ with suna_api_client.ApiClient(
     
     api_instance = suna_api_client.DefaultApi(api_client)
 
-    prompt = "Creami un sito web per un'impresa di spazzacamino"
+    prompt = "Creami un sito web per un'impresa di quattro salti in padella"
     model_name = "gpt-5-mini"  # Optional
     enable_thinking = True  # Optional
     reasoning_effort = "medium"  # Optional
@@ -80,60 +80,7 @@ with suna_api_client.ApiClient(
                         if not line or line.strip() == '':
                             continue
                             
-                        # Handle SSE format: "data: {json}\n\n"
-                        if line.startswith('data: '):
-                            raw_data = line[6:]  # Remove 'data: ' prefix
-                            
-                            # Skip ping messages
-                            if '"type": "ping"' in raw_data:
-                                continue
-                                
-                            # Skip empty messages
-                            if not raw_data or raw_data.strip() == '':
-                                continue
-                            
-                            try:
-                                # Try to parse as JSON
-                                json_data = json.loads(raw_data)
-                                
-                                # Check for error status
-                                if json_data.get('status') == 'error':
-                                    print(f"[STREAM] Error status received: {json_data}")
-                                    print(f"Error: {json_data.get('message', 'Unknown error occurred')}")
-                                    continue  # Don't break, let it continue like frontend
-                                
-                                # Check for completion
-                                if (json_data.get('type') == 'status' and 
-                                    json_data.get('status') == 'completed'):
-                                    print(f"[STREAM] Agent run completed: {json_data}")
-                                    print("Stream completed successfully")
-                                    return  # Exit the stream
-                                
-                                # Check for thread run end
-                                if (json_data.get('type') == 'status' and 
-                                    'thread_run_end' in str(json_data)):
-                                    print(f"[STREAM] Thread run end: {json_data}")
-                                    continue
-                                
-                                # Regular message - display content
-                                if json_data.get('type') == 'text':
-                                    print(f"Agent: {json_data.get('content', '')}")
-                                else:
-                                    if (hasattr(json_data, 'content')):
-                                        print(f"Stream data: {json_data.get('content', '')}")
-                                    
-                            except json.JSONDecodeError:
-                                # Not JSON, check for specific error messages
-                                if ('Agent run' in raw_data and 
-                                    'not found in active runs' in raw_data):
-                                    print("[STREAM] Agent run not found in active runs")
-                                    return
-                                
-                                # Display raw data if not JSON
-                                print(f"Raw stream data: {raw_data}")
-                        
-                        elif line.strip():
-                            print(f"Stream line: {line}")
+                        print(line)
                             
             except requests.exceptions.RequestException as e:
                 print(f"[STREAM] Request error: {e}")
