@@ -154,6 +154,7 @@ __all__ = [
     "WorkflowExecuteRequest",
     "WorkflowStepRequest",
     "WorkflowUpdateRequest",
+    "stream_agent_run",
 ]
 
 # import apis into sdk package
@@ -183,6 +184,9 @@ from suna_api_client.exceptions import ApiValueError as ApiValueError
 from suna_api_client.exceptions import ApiKeyError as ApiKeyError
 from suna_api_client.exceptions import ApiAttributeError as ApiAttributeError
 from suna_api_client.exceptions import ApiException as ApiException
+
+# import custom utilities
+from suna_api_client.custom import stream_agent_run
 
 # import models into sdk package
 from suna_api_client.models.api_key_create_request import APIKeyCreateRequest as APIKeyCreateRequest

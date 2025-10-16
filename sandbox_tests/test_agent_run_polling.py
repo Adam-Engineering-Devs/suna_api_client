@@ -321,7 +321,7 @@ def test_with_direct_requests(agent_run_id, api_key="pk_TxQNMYBqwVEdi8i0LEDzM83j
 if __name__ == "__main__":
     # Test with a sample agent_run_id
     # You can replace this with an actual agent_run_id
-    agent_run_id = "e11e933a-635f-415b-a4c3-db40bceb2f08"
+    agent_run_id = "9594decd-893d-4a34-8a8c-c6e2d492409e"
     
     print("Starting Agent Run Polling and Message Retrieval Test")
     print(f"Agent Run ID: {agent_run_id}")
