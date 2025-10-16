@@ -99,7 +99,7 @@ def test_get_thread_info_with_requests(thread_id, api_key="pk_TxQNMYBqwVEdi8i0LE
 
 if __name__ == "__main__":
     # Test with a sample thread_id (you can replace this with an actual thread_id)
-    thread_id = "5a9df3b9-eb92-4b5b-bb64-f18c6ebb075b"
+    thread_id = "df6ea70c-02f5-459d-9bdd-8778cafb329b"
     
     print("=" * 60)
     print("Testing with Suna API Client")
