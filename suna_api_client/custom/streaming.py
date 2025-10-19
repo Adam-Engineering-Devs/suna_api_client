@@ -7,7 +7,7 @@ This module provides custom streaming functionality for the suna_api_client pack
 """
 
 import time
-from typing import Generator
+from typing import Generator, Optional
 import requests
 from suna_api_client.api_client import ApiClient
 
@@ -15,8 +15,8 @@ from suna_api_client.api_client import ApiClient
 def stream_agent_run(
     api_client: ApiClient,
     agent_run_id: str,
-    timeout: int = 30,
-    safety_timeout: int = 30 * 60  # 30 minutes
+    timeout: Optional[int] = None,
+    safety_timeout: Optional[int] = None
 ) -> Generator[str, None, None]:
     """
     Stream agent run using direct HTTP requests with SSE handling.
@@ -27,8 +27,8 @@ def stream_agent_run(
     Args:
         api_client: The ApiClient instance with configuration
         agent_run_id: The agent run ID to stream
-        timeout: Request timeout in seconds (default: 30)
-        safety_timeout: Maximum time to stream in seconds (default: 30 minutes)
+        timeout: Request timeout in seconds (optional, defaults to requests default)
+        safety_timeout: Maximum time to stream in seconds (optional, no limit if None)
     
     Yields:
         str: Each line from the streaming response
@@ -71,13 +71,14 @@ def stream_agent_run(
     with requests.get(url, headers=headers, stream=True, timeout=timeout) as response:
         response.raise_for_status()
         
-        # Track start time for safety timeout
-        start_time = time.time()
+        # Track start time for safety timeout (only if safety_timeout is provided)
+        start_time = time.time() if safety_timeout is not None else None
         
         for line in response.iter_lines(decode_unicode=True):
-            # Check safety timeout
-            if time.time() - start_time > safety_timeout:
-                break
+            # Check safety timeout (only if safety_timeout is provided)
+            if safety_timeout is not None and start_time is not None:
+                if time.time() - start_time > safety_timeout:
+                    break
             
             if not line or line.strip() == '':
                 continue
