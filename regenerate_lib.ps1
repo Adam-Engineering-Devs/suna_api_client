@@ -1,0 +1,1 @@
+openapi-generator-cli generate -i "$(Get-Location)\openapi_suna.json" -c "$(Get-Location)\client_configuration.json" -g python -o "."
