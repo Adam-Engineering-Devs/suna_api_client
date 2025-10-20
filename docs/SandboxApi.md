@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**get_sandbox_status_api_sandbox_status_get**](SandboxApi.md#get_sandbox_status_api_sandbox_status_get) | **GET** /api/sandbox/status | Get Sandbox Status
 [**list_files_api_sandboxes_sandbox_id_files_get**](SandboxApi.md#list_files_api_sandboxes_sandbox_id_files_get) | **GET** /api/sandboxes/{sandbox_id}/files | List Files
 [**read_file_api_sandboxes_sandbox_id_files_content_get**](SandboxApi.md#read_file_api_sandboxes_sandbox_id_files_content_get) | **GET** /api/sandboxes/{sandbox_id}/files/content | Read File
+[**read_files_api_sandboxes_sandbox_id_all_files_content_get**](SandboxApi.md#read_files_api_sandboxes_sandbox_id_all_files_content_get) | **GET** /api/sandboxes/{sandbox_id}/all_files/content | Read Files
 [**update_file_api_sandboxes_sandbox_id_files_put**](SandboxApi.md#update_file_api_sandboxes_sandbox_id_files_put) | **PUT** /api/sandboxes/{sandbox_id}/files | Update File
 
 
@@ -471,6 +472,74 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sandbox_id** | **str**|  | 
  **path** | **str**|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **read_files_api_sandboxes_sandbox_id_all_files_content_get**
+> object read_files_api_sandboxes_sandbox_id_all_files_content_get(sandbox_id)
+
+Read Files
+
+Read all files from the sandbox and return them as a zip archive
+
+### Example
+
+
+```python
+import suna_api_client
+from suna_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = suna_api_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with suna_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = suna_api_client.SandboxApi(api_client)
+    sandbox_id = 'sandbox_id_example' # str | 
+
+    try:
+        # Read Files
+        api_response = api_instance.read_files_api_sandboxes_sandbox_id_all_files_content_get(sandbox_id)
+        print("The response of SandboxApi->read_files_api_sandboxes_sandbox_id_all_files_content_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SandboxApi->read_files_api_sandboxes_sandbox_id_all_files_content_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sandbox_id** | **str**|  | 
 
 ### Return type
 

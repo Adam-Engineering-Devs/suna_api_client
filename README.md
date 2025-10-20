@@ -281,6 +281,7 @@ Class | Method | HTTP request | Description
 *SandboxApi* | [**get_sandbox_status_api_sandbox_status_get**](docs/SandboxApi.md#get_sandbox_status_api_sandbox_status_get) | **GET** /api/sandbox/status | Get Sandbox Status
 *SandboxApi* | [**list_files_api_sandboxes_sandbox_id_files_get**](docs/SandboxApi.md#list_files_api_sandboxes_sandbox_id_files_get) | **GET** /api/sandboxes/{sandbox_id}/files | List Files
 *SandboxApi* | [**read_file_api_sandboxes_sandbox_id_files_content_get**](docs/SandboxApi.md#read_file_api_sandboxes_sandbox_id_files_content_get) | **GET** /api/sandboxes/{sandbox_id}/files/content | Read File
+*SandboxApi* | [**read_files_api_sandboxes_sandbox_id_all_files_content_get**](docs/SandboxApi.md#read_files_api_sandboxes_sandbox_id_all_files_content_get) | **GET** /api/sandboxes/{sandbox_id}/all_files/content | Read Files
 *SandboxApi* | [**update_file_api_sandboxes_sandbox_id_files_put**](docs/SandboxApi.md#update_file_api_sandboxes_sandbox_id_files_put) | **PUT** /api/sandboxes/{sandbox_id}/files | Update File
 *TranscriptionApi* | [**transcribe_audio_api_transcription_post**](docs/TranscriptionApi.md#transcribe_audio_api_transcription_post) | **POST** /api/transcription | Transcribe Audio
 *TranscriptionApi* | [**transcribe_audio_transcription_post**](docs/TranscriptionApi.md#transcribe_audio_transcription_post) | **POST** /transcription | Transcribe Audio

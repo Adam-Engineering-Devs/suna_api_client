@@ -35,9 +35,9 @@ def test_get_all_sandbox_files_content_with_thread(thread_id, api_key="pk_TxQNMY
             
             # Extract API key
             api_key_from_client = None
-            for header_name, header_value in api_client.default_headers.items():
+            for header_name, header_value in api_client.default_headers.items(
+                    api_key_from_client = header_value):
                 if header_name.lower() == 'x-api-key':
-                    api_key_from_client = header_value
                     break
             
             # Step 3: Make request to get all files as zip
