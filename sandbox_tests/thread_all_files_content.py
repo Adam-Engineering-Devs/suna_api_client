@@ -35,9 +35,9 @@ def test_get_all_sandbox_files_content_with_thread(thread_id, api_key="pk_TxQNMY
             
             # Extract API key
             api_key_from_client = None
-            for header_name, header_value in api_client.default_headers.items(
-                    api_key_from_client = header_value):
+            for header_name, header_value in api_client.default_headers.items():
                 if header_name.lower() == 'x-api-key':
+                    api_key_from_client = header_value
                     break
             
             # Step 3: Make request to get all files as zip
@@ -70,5 +70,5 @@ def test_get_all_sandbox_files_content_with_thread(thread_id, api_key="pk_TxQNMY
 
 
 if __name__ == "__main__":
-    thread_id = "cbe1e075-75fa-4890-bd37-431d3e981bd0"
+    thread_id = "b3661e88-cb17-490b-b9a0-651ec9ad24fc"
     test_get_all_sandbox_files_content_with_thread(thread_id)

@@ -11,9 +11,9 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "python": "${workspaceFolder}/.venv/Scripts/python.exe",
-            "cwd": "${workspaceFolder}/client",
+            "cwd": "${workspaceFolder}",
             "env": {
-                "PYTHONPATH": "${workspaceFolder}/client"
+                "PYTHONPATH": "${workspaceFolder}"
             },
             "args": [],
             "justMyCode": false,
@@ -24,12 +24,12 @@
             "name": "Python Debugger: test.py",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/client/test.py",
+            "program": "${workspaceFolder}/sandbox_tests/test.py",
             "console": "integratedTerminal",
             "python": "${workspaceFolder}/.venv/Scripts/python.exe",
-            "cwd": "${workspaceFolder}/client",
+            "cwd": "${workspaceFolder}",
             "env": {
-                "PYTHONPATH": "${workspaceFolder}/client"
+                "PYTHONPATH": "${workspaceFolder}"
             },
             "args": [],
             "justMyCode": false,
